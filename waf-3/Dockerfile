@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 RUN apt-get update && \
-	apt-get install -y wget tar apt-utils autoconf automake build-essential git libcurl4-openssl-dev libgeoip-dev liblmdb-dev libpcre++-dev libtool libxml2-dev libssl-dev libyajl-dev pkgconf zlib1g-dev && \
+	apt-get install -y wget tar apt-utils autoconf automake build-essential git libcurl4-openssl-dev libgeoip-dev liblmdb-dev libpcre++-dev libtool libxml2-dev libssl-dev libyajl-dev pkgconf zlib1g-dev libstdc++6 && \
 	git clone --depth 1 -b v3/master --single-branch https://github.com/SpiderLabs/ModSecurity && \
 	cd ModSecurity && \
 	git submodule init && \
@@ -30,8 +30,3 @@ COPY modsecurity.conf /usr/local/nginx/modsecurity.conf
 COPY crs-setup.conf /usr/local/nginx/crs-setup.conf
 CMD ./usr/local/nginx/sbin/nginx -g 'daemon off;'
 EXPOSE 80
-	
-	
-	
-	
-	
